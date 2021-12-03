@@ -1481,9 +1481,14 @@ int main(int args, char* argv) {
 			ss1.str("");
 			ss << _percentage;
 			ss1 << _isStarving;
+			if (_isStarving) {
+				_text->addLine("STARVING : true", 16);
 
+			}
+			else {
+				_text->addLine("STARVING : false", 16);
+			}
 			_text->addLine("PERCENTAGE : " + ss.str(), 17);
-			_text->addLine("STARVING : " + ss1.str(), 16);
 
 			ss.str("");
 			ss1.str("");
@@ -1554,9 +1559,14 @@ int main(int args, char* argv) {
 			ss1.str("");
 			ss << _percentage;
 			ss1 << _isStarving;
+			if (_isStarving) {
+				_text->addLine("STARVING : true", 16);
 
+			}
+			else {
+				_text->addLine("STARVING : false", 16);
+			}
 			_text->addLine("PERCENTAGE : " + ss.str(), 17);
-			_text->addLine("STARVING : " + ss1.str(), 16);
 
 			ss.str("");
 			ss1.str("");
@@ -1626,14 +1636,6 @@ int main(int args, char* argv) {
 		else {
 			if (initialBGM) {
 				_result = _system->playSound(soundDSP, _channelGroupBGM, false, &channelDSP);
-				channelDSP->setVolume(0.08);
-			}
-			else if (middleBGM) {
-				/*_result = _system->playSound(soundDSP1, _channelGroupBGM, false, &channelDSP);
-				channelDSP->setVolume(0.08);*/
-			}
-			else if (finalBGM) {
-				_result = _system->playSound(soundDSP2, _channelGroupBGM, false, &channelDSP);
 				channelDSP->setVolume(0.08);
 			}
 			
