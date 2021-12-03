@@ -7,15 +7,17 @@
   D:\GDP\Media Fundamentals\Git project 2\SoundGameDev-Project-2\common\fonts\arial.ttf
   1 File(s) copied
   main.cpp
-D:\GDP\Media Fundamentals\Git project 2\SoundGameDev-Project-2\Project1\main.cpp(264,30): warning C4305: 'argument': truncation from 'double' to 'float'
-D:\GDP\Media Fundamentals\Git project 2\SoundGameDev-Project-2\Project1\main.cpp(318,30): warning C4305: 'argument': truncation from 'double' to 'float'
-D:\GDP\Media Fundamentals\Git project 2\SoundGameDev-Project-2\Project1\main.cpp(461,31): warning C4305: 'argument': truncation from 'double' to 'float'
-D:\GDP\Media Fundamentals\Git project 2\SoundGameDev-Project-2\Project1\main.cpp(1405,31): warning C4018: '<': signed/unsigned mismatch
-D:\GDP\Media Fundamentals\Git project 2\SoundGameDev-Project-2\Project1\main.cpp(1479,31): warning C4018: '<': signed/unsigned mismatch
-D:\GDP\Media Fundamentals\Git project 2\SoundGameDev-Project-2\Project1\main.cpp(1548,31): warning C4018: '<': signed/unsigned mismatch
-D:\GDP\Media Fundamentals\Git project 2\SoundGameDev-Project-2\Project1\main.cpp(1612,31): warning C4305: 'argument': truncation from 'double' to 'float'
-D:\GDP\Media Fundamentals\Git project 2\SoundGameDev-Project-2\Project1\main.cpp(1620,31): warning C4305: 'argument': truncation from 'double' to 'float'
-rssgl.lib(GLLog.obj) : warning LNK4099: PDB 'rssgl.pdb' was not found with 'rssgl.lib(GLLog.obj)' or at 'D:\GDP\Media Fundamentals\Git project 2\SoundGameDev-Project-2\x64\Debug\rssgl.pdb'; linking object as if no debug info
+D:\GDP\Media Fundamentals\Git project 2\SoundGameDev-Project-2\Project1\main.cpp(280,30): warning C4305: 'argument': truncation from 'double' to 'float'
+D:\GDP\Media Fundamentals\Git project 2\SoundGameDev-Project-2\Project1\main.cpp(334,30): warning C4305: 'argument': truncation from 'double' to 'float'
+D:\GDP\Media Fundamentals\Git project 2\SoundGameDev-Project-2\Project1\main.cpp(477,31): warning C4305: 'argument': truncation from 'double' to 'float'
+D:\GDP\Media Fundamentals\Git project 2\SoundGameDev-Project-2\Project1\main.cpp(1422,31): warning C4018: '<': signed/unsigned mismatch
+D:\GDP\Media Fundamentals\Git project 2\SoundGameDev-Project-2\Project1\main.cpp(1496,31): warning C4018: '<': signed/unsigned mismatch
+D:\GDP\Media Fundamentals\Git project 2\SoundGameDev-Project-2\Project1\main.cpp(1565,31): warning C4018: '<': signed/unsigned mismatch
+D:\GDP\Media Fundamentals\Git project 2\SoundGameDev-Project-2\Project1\main.cpp(1629,31): warning C4305: 'argument': truncation from 'double' to 'float'
+D:\GDP\Media Fundamentals\Git project 2\SoundGameDev-Project-2\Project1\main.cpp(1637,31): warning C4305: 'argument': truncation from 'double' to 'float'
+D:\GDP\Media Fundamentals\Git project 2\SoundGameDev-Project-2\Project1\main.cpp(2021,20): warning C4018: '<': signed/unsigned mismatch
+LINK : warning LNK4098: defaultlib 'MSVCRT' conflicts with use of other libs; use /NODEFAULTLIB:library
+rssgl.lib(GLLog.obj) : warning LNK4099: PDB '' was not found with 'rssgl.lib(GLLog.obj)' or at ''; linking object as if no debug info
 rssgl.lib(GLShader.obj) : warning LNK4099: PDB 'rssgl.pdb' was not found with 'rssgl.lib(GLShader.obj)' or at 'D:\GDP\Media Fundamentals\Git project 2\SoundGameDev-Project-2\x64\Debug\rssgl.pdb'; linking object as if no debug info
 rssgl.lib(GLText.obj) : warning LNK4099: PDB 'rssgl.pdb' was not found with 'rssgl.lib(GLText.obj)' or at 'D:\GDP\Media Fundamentals\Git project 2\SoundGameDev-Project-2\x64\Debug\rssgl.pdb'; linking object as if no debug info
   Project1.vcxproj -> D:\GDP\Media Fundamentals\Git project 2\SoundGameDev-Project-2\x64\Debug\Project1.exe

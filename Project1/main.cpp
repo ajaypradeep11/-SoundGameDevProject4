@@ -21,6 +21,12 @@
 #include <fstream>
 #include <vector>
 
+#include <rapidjson/filereadstream.h>
+#include <rapidjson/filewritestream.h>
+#include "rapidjson/writer.h"
+#include "rapidjson/reader.h"
+#include <rapidjson/document.h>
+
 GLuint _width = 1920;
 GLuint _height = 1080;
 
@@ -158,6 +164,16 @@ FMOD::Channel* channelDSP = nullptr;
 bool initialBGM = false;
 bool middleBGM = false;
 bool finalBGM = false;
+
+struct sWindowDef
+{
+	std::string URLs[3];
+};
+
+struct sConfig
+{
+	sWindowDef WindowDef;
+};
 
 //Function used to replay the options for LEVEL 1
 void callOption() {
@@ -1159,7 +1175,8 @@ void shutdownSound(FMOD::Sound* _soundToRelease);
 
 //to get sound from file
 std::vector<std::string> getSoundFromFile(std::string fileName);
-
+bool ReadConfigFromJSON(const std::string& filePath, sConfig& configOut);
+bool SetValue(const rapidjson::Value& valueIn, std::string(&valueOut)[3]);
 
 //Main Function
 int main(int args, char* argv) {
@@ -1716,9 +1733,13 @@ bool initFMOD() {
 		fprintf(stderr, "Unable to set file buffer size");
 		return false;
 	}
-	vecURLS.push_back("https://kcrw.streamguys1.com/kcrw_192k_mp3_e24_internet_radio");
-	vecURLS.push_back("https://streaming.live365.com/a06375?listenerId=262ca4478ca6140f8c3aa06bc674d450&aw_0_1st.playerid=Live365-Widget&aw_0_1st.skey=1638491717");
-	vecURLS.push_back("https://streaming.live365.com/a57422?listenerId=262ca4478ca6140f8c3aa06bc674d450&aw_0_1st.playerid=Live365-Widget&aw_0_1st.skey=1638491792");
+
+	sConfig config;
+	ReadConfigFromJSON("Audio.json", config);
+
+	vecURLS.push_back(config.WindowDef.URLs[0]);
+	vecURLS.push_back(config.WindowDef.URLs[1]);
+	vecURLS.push_back(config.WindowDef.URLs[2]);
 
 	_result = _system->createSound(vecURLS.at(0).c_str(), FMOD_CREATESTREAM | FMOD_NONBLOCKING, 0, &soundDSP);
 	if (_result != FMOD_OK) {
@@ -1972,4 +1993,33 @@ std::vector<std::string> getSoundFromFile(std::string fileName) {
 	}
 
 	return result;
+}
+
+bool ReadConfigFromJSON(const std::string& filePath, sConfig& configOut)
+{
+	using namespace rapidjson;
+
+	FILE* fp = 0;
+	fopen_s(&fp, filePath.c_str(), "rb"); // non-Windows use "r"
+
+	char readBuffer[65536];
+	FileReadStream is(fp, readBuffer, sizeof(readBuffer));
+
+	Document d;
+	d.ParseStream(is);
+	SetValue(d["url"], configOut.WindowDef.URLs);
+
+	return true;
+}
+
+bool SetValue(const rapidjson::Value& valueIn, std::string(&valueOut)[3])
+{
+	if (!valueIn.IsArray())
+	{
+		return false;
+	}
+	for (int i = 0; i < valueIn.Size(); i++) {
+		valueOut[i] = valueIn[i].GetString();
+	}
+	return true;
 }

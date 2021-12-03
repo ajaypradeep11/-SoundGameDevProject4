@@ -164,6 +164,9 @@ xcopy /Y "$(SolutionDir)common\fonts\arial.ttf" "$(OutDir)"
     <ClCompile Include="..\common\gl.c" />
     <ClCompile Include="main.cpp" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Audio.json" />
+  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>
